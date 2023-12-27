@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool isPalindrome(char* some_string) {
+    int length = strlen(some_string);
+    // Compare chars from beginning and end until we reach the middle
+    for (int i = 0; i < (length / 2); i++) {
+        if (some_string[i] != some_string[length - i - 1]) {
+            return false; // Not a palindrome
+        }
+    }
+    // If we made it here withouth returning false, it must be a palindrome
+    return true; 
+}
+
+void reverseString(char* some_string) {
+    int length = strlen(some_string);
+    // Swap chars from beginning and end until we reach the middle
+    for (int i = 0; i < (length / 2); i++) {
+        char temp = some_string[i];
+        some_string[i] = some_string[length - i - 1];
+        some_string[length - i - 1] = temp; 
+    }
+}
+
+int main()
+{
+    char my_string[20];
+
+    // Prompt user for a string
+    printf("Enter a string: ");
+    scanf_s("%19s", my_string, (unsigned)sizeof(my_string));
+
+    // Check if its a palindrome and print a message
+    bool p_result = isPalindrome(my_string);
+    if (p_result) {
+        printf("The entered string, %s, is a palindrome.\n", my_string);
+    }
+    else {
+        printf("The entered string, %s, is NOT a palindrome.\n", my_string);
+    }
+
+    // Reverse if not a palindrome:
+    if (!p_result) {
+        reverseString(my_string);
+        printf("The reversed string is: %s", my_string);
+    }
+}
