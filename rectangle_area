@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int find_area(int height, int width) {
+    return height * width;
+}
+
+
+int main()
+{
+    int result = find_area(5, 10);
+    printf("%d is the area of the rectangle.\n", result);
+}
