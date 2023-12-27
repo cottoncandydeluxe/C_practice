@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int nums, curr_num;
+    int max, min;
+
+    // Prompt user for number of integers
+    printf("Enter the number of integers: ");
+    scanf_s("%d", &nums);
+
+    // Initialize min and max with first input number
+    printf("Enter integer 1: ");
+    scanf_s("%d", &curr_num);
+    min = max = curr_num;
+
+    // Loop through nums and calculate min and max
+    for (int i = 2; i <= nums; i++) {
+        printf("Enter integer %d: ", i);
+        scanf_s("%d", &curr_num);
+        if (curr_num < min) {
+            min = curr_num;
+        }
+        if (curr_num > max) {
+            max = curr_num;
+        }
+    }
+
+    // Print results 
+    printf("Minimum value is: %d.\n", min);
+    printf("Maximum value is: %d.\n", max);
+
+}
